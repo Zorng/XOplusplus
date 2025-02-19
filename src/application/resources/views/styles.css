@@ -1,0 +1,51 @@
+.Label {
+    -fx-line-height: auto;
+}
+.h1 {
+    -fx-font-size: 72px;
+    -fx-font-weight: Bold;
+}
+
+.h2 {
+    -fx-font-size: 32px;
+    -fx-font-weight: 600;
+}
+
+.h3 {
+    -fx-font-size: 24px;
+    -fx-font-weight: 500;
+}
+
+.h4 {
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+}
+
+.button {
+    -fx-pref-width: 220px;
+    -fx-pref-height: 80px;
+    -fx-background-radius: 10px;
+}
+
+.primary {
+    -fx-background-color: #1DE857;
+}
+
+.primary:hover {
+    -fx-background-color: #25BF50;
+}
+
+.secondary {
+    -fx-background-color: #BEC4C0;
+}
+.secondary:hover {
+    -fx-background-color: #A3A8A4;
+}
+
+.contrast {
+    -fx-background-color: #F97777;
+}
+
+.contrast:hover {
+    -fx-background-color: #DB6868;
+}
