@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -43,6 +44,12 @@ public class Demo implements Initializable {
     @FXML
     private Text winnerText;
 
+    @FXML
+    private Label xStatus;
+
+    @FXML
+    private Label oStatus;
+
     private int playerTurn = 0;
 
     ArrayList<Button> buttons;
@@ -80,9 +87,13 @@ public class Demo implements Initializable {
     public void setPlayerSymbol(Button button){
         if(playerTurn % 2 == 0){
             button.setText("X");
+            xStatus.setStyle("-fx-text-fill: green;");
+            oStatus.setStyle("-fx-text-fill: black;");
             playerTurn = 1;
-        } else{
+        } else {
             button.setText("O");
+            xStatus.setStyle("-fx-text-fill: black;");
+            oStatus.setStyle("-fx-text-fill: red;");
             playerTurn = 0;
         }
     }
