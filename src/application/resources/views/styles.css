@@ -13,7 +13,7 @@
 
 .h3 {
     -fx-font-size: 24px;
-    -fx-font-weight: medium;
+    -fx-font-weight: 500;
 }
 
 .h4 {
@@ -48,14 +48,4 @@
 
 .contrast:hover {
     -fx-background-color: #DB6868;
-
-}
-
-.symX {
-    -fx-text-fill:#2f47fc;
-}
-
-.symO {
-    -fx-text-fill:#fa3f2f;
-
 }
