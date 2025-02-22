@@ -5,14 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.text.Text;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class Demo implements Initializable {
+public class Classic3x3Controller implements Initializable {
 
     @FXML
     private Button button1;
@@ -42,15 +40,12 @@ public class Demo implements Initializable {
     private Button button9;
 
     @FXML
-    private Text winnerText;
+    private Label title;
 
     @FXML
-    private Label xStatus;
+    private Label symbol;
 
-    @FXML
-    private Label oStatus;
-
-    private int playerTurn = 0;
+    private int playerTurn;
 
     ArrayList<Button> buttons;
 
@@ -63,12 +58,19 @@ public class Demo implements Initializable {
             setupButton(button);
             button.setFocusTraversable(false);
         });
+        playerTurn = 0;
+        symbol.setText("X");
+        symbol.setStyle("-fx-text-fill:#2f47fc");
+
     }
 
     @FXML
     void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
-        winnerText.setText("Classic 3x3");
+        title.setText("Classic 3x3");
+        playerTurn = 0;
+        symbol.setText("X");
+        symbol.setStyle("-fx-text-fill:#2f47fc");
     }
 
     public void resetButton(Button button){
@@ -80,25 +82,30 @@ public class Demo implements Initializable {
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
             button.setDisable(true);
-            checkIfGameIsOver();
+            if(checkIfGameIsOver()) {
+                buttons.forEach(element -> {
+                    element.setDisable(true);
+                });
+            }
         });
     }
 
     public void setPlayerSymbol(Button button){
-        if(playerTurn % 2 == 0){
+        if (playerTurn % 2 == 0){
+            // O's turn to play
             button.setText("X");
-            xStatus.setStyle("-fx-text-fill: green;");
-            oStatus.setStyle("-fx-text-fill: black;");
-            playerTurn = 1;
-        } else {
-            button.setText("O");
-            xStatus.setStyle("-fx-text-fill: black;");
-            oStatus.setStyle("-fx-text-fill: red;");
-            playerTurn = 0;
+            symbol.setText("O");
+            symbol.setStyle("-fx-text-fill:#fa3f2f");
         }
+        else if (playerTurn % 2 == 1){
+            button.setText("O");
+            symbol.setText("X");
+            symbol.setStyle("-fx-text-fill:#2f47fc");
+        }
+        playerTurn++;
     }
 
-    public void checkIfGameIsOver(){
+    public boolean checkIfGameIsOver(){
         for (int a = 0; a < 8; a++) {
             String line = switch (a) {
                 case 0 -> button1.getText() + button2.getText() + button3.getText();
@@ -114,13 +121,16 @@ public class Demo implements Initializable {
 
             //X winner
             if (line.equals("XXX")) {
-                winnerText.setText("X won!");
-            }
+               title.setText("X won!");
+               return true;
 
+            }
             //O winner
             else if (line.equals("OOO")) {
-                winnerText.setText("O won!");
+                title.setText("O won!");
+                return true;
             }
         }
+        return false;
     }
 }
