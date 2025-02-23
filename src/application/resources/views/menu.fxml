@@ -42,7 +42,7 @@
             </VBox>
             <VBox fx:id="exitOptionContainer" alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="exitButton" mnemonicParsing="false" stylesheets="@../css/styles.css" text="Button">
+                  <Button fx:id="exitButton" mnemonicParsing="false" stylesheets="@../css/styles.css" text="Exit" onAction="#exitButtonListener">
                      <styleClass>
                         <String fx:value="contrast" />
                         <String fx:value="h2" />

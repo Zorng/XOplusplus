@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class MenuController {
@@ -46,12 +48,12 @@ public class MenuController {
 
     @FXML
     void playButtonListener(ActionEvent event) throws IOException {
-        Route.get("demo", event);
-        // Route::get("demo.fxml");
-
+        Route.get("gameOption", event);
     }
+    @FXML
     void exitButtonListener(ActionEvent event) {
-
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
 
 }
