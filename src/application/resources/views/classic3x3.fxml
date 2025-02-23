@@ -21,7 +21,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="h3" stylesheets="@../css/styles.css">
          <children>
             <Label fx:id="symbol" alignment="CENTER" text="dummy " />
-            <Label text="To Play" />
+            <Label text=" To Play" />
          </children>
       </HBox>
       <VBox alignment="CENTER" prefHeight="478.0" prefWidth="1068.0" spacing="5.0">
