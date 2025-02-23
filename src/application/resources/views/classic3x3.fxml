@@ -52,7 +52,7 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backToOption" stylesheets="@../css/styles.css" text="Back">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backToOption" styleClass="secondary" stylesheets="@../css/styles.css" text="Back">
                <font>
                   <Font size="32.0" />
                </font>
