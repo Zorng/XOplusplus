@@ -32,7 +32,7 @@ public class GameOptionSceneController {
                         (radiobutton4.isSelected() || radiobutton5.isSelected()) && // One win condition must be selected
                         (!radiobutton6.isSelected() || radiobutton6.isSelected()) // Rapid is optional (either selected or not)
         ) {
-            Route.get("classic3x3", event);
+            Route.get("classic5x5", event);
         }
     }
 }

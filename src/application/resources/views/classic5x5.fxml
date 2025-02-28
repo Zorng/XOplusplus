@@ -13,18 +13,24 @@
 <VBox alignment="CENTER" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.Classic5x5Controller">
 
     <children>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
                 <Label fx:id="title" styleClass="h2" text="Classic 5x5">
                     <font>
                         <Font size="39.0" />
                     </font>
                 </Label>
-            </children>
-        </HBox>
+                <Label fx:id="symbol">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Label>
+         </children>
+      </VBox>
       <HBox alignment="CENTER" prefHeight="592.0" prefWidth="1200.0">
+
          <children>
-            <GridPane fx:id="boardGrid" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
+            <GridPane fx:id="boardGrid" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0">
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -91,13 +97,16 @@
                         <Font size="32.0" />
                     </font>
                     <HBox.margin>
-                        <Insets right="100.0" />
+                        <Insets bottom="10.0" right="100.0" />
                     </HBox.margin>
                 </Button>
                 <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restartGame" prefHeight="80.0" prefWidth="220.0" styleClass="primary h2" stylesheets="@../css/styles.css" text="Restart">
                <font>
                   <Font size="32.0" />
-               </font></Button>
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin></Button>
             </children>
         </HBox>
     </children>
