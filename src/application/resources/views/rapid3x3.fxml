@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.Rapid3x3Controller">
+    <children>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0" stylesheets="@../css/styles.css">
+            <children>
+            <Label text="X:" textFill="BLUE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="timeX" prefHeight="35.0" prefWidth="35.0" text="3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+                <Label fx:id="title" styleClass="h2" text="Classic: 3 to win" textAlignment="CENTER">
+                    <font>
+                        <Font size="39.0" />
+                    </font>
+                </Label>
+            <Label text="O:" textFill="RED">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="timeO" prefHeight="35.0" prefWidth="35.0" text="3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="h3" stylesheets="@../css/styles.css">
+            <children>
+                <Label fx:id="symbol" alignment="CENTER" text="dummy " />
+                <Label text=" To Play" />
+            </children>
+        </HBox>
+        <VBox alignment="CENTER" prefHeight="478.0" prefWidth="1068.0" spacing="5.0">
+            <children>
+                <HBox alignment="CENTER" spacing="5.0">
+                    <children>
+                        <Button fx:id="button1" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="button2" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="button3" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" spacing="5.0">
+                    <children>
+                        <Button fx:id="button4" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="button5" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="button6" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1068.0" spacing="5.0">
+                    <children>
+                        <Button fx:id="button7" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+                        <Button fx:id="button8" mnemonicParsing="false" prefHeight="114.0" prefWidth="100.0" />
+                        <Button fx:id="button9" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="backButton" mnemonicParsing="false" onAction="#backToOption" styleClass="secondary" stylesheets="@../css/styles.css" text="Back">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="100.0" />
+                    </HBox.margin>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#restartGame" prefHeight="35.0" prefWidth="82.0" stylesheets="@../css/styles.css" text="Restart" textAlignment="CENTER">
+                    <styleClass>
+                        <String fx:value="primary" />
+                        <String fx:value="h2" />
+                    </styleClass>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</VBox>
