@@ -15,7 +15,7 @@
     <children>
       <VBox alignment="CENTER" prefHeight="46.0" prefWidth="1200.0">
          <children>
-                <Label fx:id="title" styleClass="h2" text="Classic 5x5">
+                <Label fx:id="title" alignment="CENTER" styleClass="h2" text="Classic 5x5" textAlignment="CENTER">
                     <font>
                         <Font size="39.0" />
                     </font>
@@ -30,7 +30,7 @@
       <HBox alignment="CENTER" prefHeight="592.0" prefWidth="1200.0">
 
          <children>
-            <GridPane fx:id="boardGrid" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+            <GridPane fx:id="boardGrid" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0">
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" />

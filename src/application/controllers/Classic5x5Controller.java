@@ -3,18 +3,14 @@ package application.controllers;
 import application.utils.Route;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ResourceBundle;
-
-
 
 public class Classic5x5Controller {
 
@@ -34,6 +30,9 @@ public class Classic5x5Controller {
     @FXML
     private GridPane boardGrid;
 
+    private double pointerX, pointerY;
+    private double initialTranslateX, initialTranslateY;
+
     public void initialize() {
         buttons = new ArrayList<>();
 
@@ -51,6 +50,34 @@ public class Classic5x5Controller {
         playerTurn = 0;
         symbol.setText("X");
         symbol.setStyle("-fx-text-fill:#2f47fc");
+
+        boardGrid.setOnMouseClicked((MouseEvent event) -> {
+            pointerX = event.getSceneX();
+            pointerY = event.getSceneY();
+            initialTranslateX = boardGrid.getTranslateX();
+            initialTranslateY = boardGrid.getTranslateY();
+        });
+
+        boardGrid.setOnMouseDragged((MouseEvent event) -> {
+            double deltaX = event.getSceneX() - pointerX;
+            double deltaY = event.getSceneY() - pointerY;
+            boardGrid.setTranslateX(initialTranslateX + deltaX);
+            boardGrid.setTranslateY(initialTranslateY + deltaY);
+        });
+
+        boardGrid.setOnTouchPressed((TouchEvent event) -> {
+            pointerX = event.getTouchPoint().getSceneX();
+            pointerY = event.getTouchPoint().getSceneY();
+            initialTranslateX = boardGrid.getTranslateX();
+            initialTranslateY = boardGrid.getTranslateY();
+        });
+
+        boardGrid.setOnTouchMoved((TouchEvent event) -> {
+            double deltaX = event.getTouchPoint().getSceneX() - pointerX;
+            double deltaY = event.getTouchPoint().getSceneY() - pointerY;
+            boardGrid.setTranslateX(initialTranslateX + deltaX);
+            boardGrid.setTranslateY(initialTranslateY + deltaY);
+        });
     }
 
     @FXML
