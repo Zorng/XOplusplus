@@ -21,11 +21,26 @@
     -fx-font-weight: 400;
 }
 
-.button {
+.buttonMenu {
     -fx-pref-width: 220px;
     -fx-pref-height: 80px;
     -fx-background-radius: 10px;
 }
+
+.buttonMenu-s {
+    -fx-pref-width: 160px;
+    -fx-pref-height: 50px;
+    -fx-background-radius: 8px;
+}
+
+.tile {
+    -fx-background-color: white;
+    -fx-border-style: none;
+    -fx-border-radius: 0;
+    -fx-border-color: black;
+    -fx-border-width: thin;
+}
+
 
 .primary {
     -fx-background-color: #1DE857;
@@ -55,4 +70,14 @@
 
 .symO {
     -fx-text-fill:#fa3f2f;
+}
+
+.board-symX {
+    -fx-text-fill:#2f47fc;
+    -fx-font-size: 24px;
+}
+
+.board-symO {
+    -fx-text-fill:#fa3f2f;
+    -fx-font-size: 24px;
 }

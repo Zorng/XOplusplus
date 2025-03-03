@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.PortalController">
+    <children>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" stylesheets="@../css/styles.css">
+            <children>
+                <Label fx:id="title" styleClass="h2" text="Classic 3x3" textAlignment="CENTER">
+                    <font>
+                        <Font size="39.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="h3" stylesheets="@../css/styles.css">
+            <children>
+                <Label fx:id="symbol" alignment="CENTER" text="dummy " />
+                <Label text=" To Play" />
+            </children>
+        </HBox>
+      <GridPane alignment="CENTER" stylesheets="@../css/styles.css" VBox.vgrow="NEVER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btn0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+            <Button fx:id="btn1" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" />
+            <Button fx:id="btn2" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" />
+            <Button fx:id="btn3" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" />
+            <Button fx:id="btn4" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" />
+            <Button fx:id="btn5" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="5" />
+            <Button fx:id="btn6" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="1" />
+            <Button fx:id="btn7" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="btn8" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="btn9" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="btn10" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="btn11" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Button fx:id="btn12" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="2" />
+            <Button fx:id="btn13" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btn14" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="btn15" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btn16" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="btn17" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Button fx:id="btn18" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="3" />
+            <Button fx:id="btn19" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="btn20" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="btn21" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="btn22" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button fx:id="btn23" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Button fx:id="btn24" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="4" />
+            <Button fx:id="btn25" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="btn26" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button fx:id="btn27" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="btn28" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Button fx:id="btn29" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Button fx:id="btn30" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="5" />
+            <Button fx:id="btn31" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button fx:id="btn32" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="btn33" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button fx:id="btn34" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button fx:id="btn35" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="backButton" mnemonicParsing="false" onAction="#backToOption" stylesheets="@../css/styles.css" text="Back">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="100.0" />
+                    </HBox.margin>
+               <styleClass>
+                  <String fx:value="secondary" />
+                  <String fx:value="h3" />
+                  <String fx:value="buttonMenu-s" />
+               </styleClass>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#restartGame" prefHeight="35.0" prefWidth="82.0" stylesheets="@../css/styles.css" text="Restart" textAlignment="CENTER">
+                    <styleClass>
+                        <String fx:value="primary" />
+                        <String fx:value="h2" />
+                  <String fx:value="h3" />
+                  <String fx:value="buttonMenu-s" />
+                    </styleClass>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</VBox>
