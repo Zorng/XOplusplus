@@ -86,10 +86,10 @@ public class Rapid3x3Controller implements Initializable {
         timer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             if(playerTurn % 2 == 0){
                 timerX--;
-                timeX.setText(String.valueOf(timerX));
+                timeX.setText(String.valueOf(timerX)+"s");
             } else {
                 timerO--;
-                timeO.setText(String.valueOf(timerO));
+                timeO.setText(String.valueOf(timerO)+"s");
             }
 
             if(timerX <= 0){
@@ -161,14 +161,14 @@ public class Rapid3x3Controller implements Initializable {
             symbol.setText("O");
             symbol.setStyle("-fx-text-fill:#fa3f2f");
             timerX++; // add 1s to X when move
-            timeX.setText(String.valueOf(timerX));
+            timeX.setText(String.valueOf(timerX) + "s");
         }
         else if (playerTurn % 2 == 1){
             button.setText("O");
             symbol.setText("X");
             symbol.setStyle("-fx-text-fill:#2f47fc");
             timerO++; // add 1s to O when move
-            timeO.setText(String.valueOf(timerO));
+            timeO.setText(String.valueOf(timerO) + "s");
         }
         playerTurn++;
 

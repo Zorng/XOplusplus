@@ -17,7 +17,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label fx:id="timeX" prefHeight="35.0" prefWidth="35.0" text="3">
+            <Label fx:id="timeX" prefHeight="35.0" prefWidth="35.0" text="3s">
                <font>
                   <Font size="24.0" />
                </font>
@@ -32,7 +32,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label fx:id="timeO" prefHeight="35.0" prefWidth="35.0" text="3">
+            <Label fx:id="timeO" prefHeight="35.0" prefWidth="35.0" text="3s">
                <font>
                   <Font size="24.0" />
                </font>
