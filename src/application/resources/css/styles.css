@@ -39,6 +39,7 @@
     -fx-border-radius: 0;
     -fx-border-color: black;
     -fx-border-width: thin;
+    -fx-font-size: 32px;
 }
 
 
@@ -80,4 +81,10 @@
 .board-symO {
     -fx-text-fill:#fa3f2f;
     -fx-font-size: 24px;
+}
+
+.portal-border {
+    -fx-border-width: 10px;
+    -fx-border-style: solid;
+    -fx-border-color: #7A18FA #FA9018;
 }

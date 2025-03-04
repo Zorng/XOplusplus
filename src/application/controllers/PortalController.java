@@ -175,13 +175,14 @@ public class PortalController implements Initializable {
 
     public void resetButton(Button button){
         button.setDisable(false);
+        button.setMouseTransparent(false);
         button.setText("");
     }
 
     private void setupButton(Button button) {
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
-            button.setDisable(true);
+            button.setMouseTransparent(true);
             if(checkIfGameIsOver()) {
                 buttons.forEach(element -> {
                     element.setDisable(true);
@@ -245,7 +246,7 @@ public class PortalController implements Initializable {
             line.setLength(0);
         }
 
-        //check all classic 4x4
+        //check classic 4x4 horizontal
         for(int l = 0; l < 13; l+=6) {
             for(int k = 0; k < 3; k++) {
                 for(int j = l; j < 19+l; j +=6) {
@@ -257,6 +258,44 @@ public class PortalController implements Initializable {
                     }
                     line.setLength(0);
                 }
+            }
+        }
+
+        //check classic 4x4 vertical
+
+        for(int k = 0; k < 13; k+=6) {
+            for(int l = 0; l < 3; l++) {
+                for(int j = l; j < 4+l; j++) {
+                    for(int i = j + k; i < 19 + k + j; i += 6) {
+                        line.append(buttons.get(i).getText());
+                    }
+                    if(isLine(line.toString())) {
+                        return true;
+                    }
+                    line.setLength(0);
+                }
+            }
+        }
+
+
+        //check classic diagonal
+        for(int k = 0; k < 13; k+=6) {
+            for(int j = k; j < 3 + k; j++) {
+                for(int i = j; i < 22 + j; i += 7) {
+                    line.append(buttons.get(k).getText());
+                }
+                if(isLine(line.toString())) {
+                    return true;
+                }
+                line.setLength(0);
+
+                for(int i = 3 + j; i < 19 + j; i += 5) {
+                    line.append(buttons.get(k).getText());
+                }
+                if(isLine(line.toString())) {
+                    return true;
+                }
+                line.setLength(0);
             }
         }
 
