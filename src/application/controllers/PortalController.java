@@ -199,6 +199,7 @@ public class PortalController implements Initializable {
             symbol.setText("O");
             symbol.setStyle("-fx-text-fill:#fa3f2f");
 
+
         }
         else {
             button.setStyle("-fx-text-fill:#fa3f2f");
@@ -282,7 +283,7 @@ public class PortalController implements Initializable {
         for(int k = 0; k < 13; k+=6) {
             for(int j = k; j < 3 + k; j++) {
                 for(int i = j; i < 22 + j; i += 7) {
-                    line.append(buttons.get(k).getText());
+                    line.append(buttons.get(i).getText());
                 }
                 if(isLine(line.toString())) {
                     return true;
@@ -290,7 +291,7 @@ public class PortalController implements Initializable {
                 line.setLength(0);
 
                 for(int i = 3 + j; i < 19 + j; i += 5) {
-                    line.append(buttons.get(k).getText());
+                    line.append(buttons.get(i).getText());
                 }
                 if(isLine(line.toString())) {
                     return true;
