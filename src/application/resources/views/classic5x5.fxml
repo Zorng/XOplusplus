@@ -31,7 +31,7 @@
             <children>
                 <ScrollPane hbarPolicy="NEVER" pannable="true" prefViewportHeight="600" prefViewportWidth="600" vbarPolicy="NEVER">
                     <content>
-                        <GridPane fx:id="boardGrid" alignment="CENTER" cache="true" cacheHint="SPEED" gridLinesVisible="true" prefHeight="2000.0" prefWidth="2000.0">
+                        <GridPane fx:id="boardGrid" alignment="CENTER" gridLinesVisible="true" prefHeight="2000.0" prefWidth="2000.0">
                             <rowConstraints>
                                 <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" />
                                 <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" />
