@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resources/views/portal.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resources/views/portalRapid.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 800);
         //block this
         primaryStage.setTitle("XO++");

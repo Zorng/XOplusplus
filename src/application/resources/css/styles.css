@@ -38,7 +38,7 @@
     -fx-border-style: none;
     -fx-border-radius: 0px;
     -fx-border-color: black;
-    -fx-border-width: thin;
+    -fx-border-width: 1px;
     -fx-font-size: 32px;
 }
 

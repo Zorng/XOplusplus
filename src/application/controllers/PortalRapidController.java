@@ -167,6 +167,8 @@ public class PortalRapidController implements Initializable {
         title.setText("Portal");
         symbol.setText("X");
         symbol.setStyle("-fx-text-fill:#2f47fc");
+        timeX.setText(String.valueOf(timerX) + "s");
+        timeO.setText(String.valueOf(timerO) + "s");
 
         startTimer(); // start timer immediately after game start
     }
@@ -219,8 +221,8 @@ public class PortalRapidController implements Initializable {
         timerX = 8;
         timerO = 8;
         // update timer label
-        timeX.setText(String.valueOf(timerX));
-        timeO.setText(String.valueOf(timerO));
+        timeX.setText(String.valueOf(timerX) + "s");
+        timeO.setText(String.valueOf(timerO) + "s");
 
         if(timer != null){
             timer.stop();
@@ -239,6 +241,7 @@ public class PortalRapidController implements Initializable {
             setPlayerSymbol(button);
             button.setMouseTransparent(true);
             if(checkIfGameIsOver()) {
+                timer.stop();
                 buttons.forEach(element -> {
                     element.setDisable(true);
                 });
@@ -252,7 +255,11 @@ public class PortalRapidController implements Initializable {
             button.setStyle("-fx-text-fill:#2f47fc");
             button.setText("X");
             symbol.setText("O");
+            timerX++;
             symbol.setStyle("-fx-text-fill:#fa3f2f");
+            timeX.setText(String.valueOf(timerX) + "s");
+            timeO.setText(String.valueOf(timerO) + "s");
+
 
 
         }
@@ -261,6 +268,9 @@ public class PortalRapidController implements Initializable {
             button.setText("O");
             symbol.setText("X");
             symbol.setStyle("-fx-text-fill:#2f47fc");
+            timerO++;
+            timeX.setText(String.valueOf(timerX) + "s");
+            timeO.setText(String.valueOf(timerO) + "s");
 
         }
         playerTurn++;
