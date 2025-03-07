@@ -29,7 +29,7 @@
         </VBox>
         <HBox alignment="CENTER" prefHeight="592.0" prefWidth="1200.0">
             <children>
-                <ScrollPane hbarPolicy="NEVER" prefViewportHeight="600" prefViewportWidth="600" vbarPolicy="NEVER">
+                <ScrollPane hbarPolicy="NEVER" pannable="true" prefViewportHeight="600" prefViewportWidth="600" vbarPolicy="NEVER">
                     <content>
                         <GridPane fx:id="boardGrid" alignment="CENTER" gridLinesVisible="true" prefHeight="2000.0" prefWidth="2000.0">
                             <rowConstraints>
