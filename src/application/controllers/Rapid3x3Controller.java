@@ -128,8 +128,8 @@ public class Rapid3x3Controller implements Initializable {
         timerX = 3;
         timerO = 3;
         // update timer label
-        timeX.setText(String.valueOf(timerX));
-        timeO.setText(String.valueOf(timerO));
+        timeX.setText(String.valueOf(timerX)+"s");
+        timeO.setText(String.valueOf(timerO)+"s");
 
         if(timer != null){
             timer.stop();
