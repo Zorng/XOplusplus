@@ -34,6 +34,7 @@ public class GameOptionSceneController {
     public void startButtonCondition(ActionEvent event) throws IOException {
         RadioButton selectedMode = (RadioButton) mode.getSelectedToggle();
         RadioButton selectedWinCondition = (RadioButton) winCondition.getSelectedToggle();
+        
 
         if (selectedMode != null && selectedWinCondition != null) {
 

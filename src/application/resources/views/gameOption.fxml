@@ -82,10 +82,10 @@
                                 <Font size="24.0" />
                             </font>
                      <toggleGroup>
-                        <ToggleGroup fx:id="wincondition" />
+                        <ToggleGroup fx:id="winCondition" />
                      </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="radiobutton5" mnemonicParsing="false" prefHeight="147.0" prefWidth="194.0" text="5-to win" toggleGroup="$wincondition">
+                        <RadioButton fx:id="radiobutton5" mnemonicParsing="false" prefHeight="147.0" prefWidth="194.0" text="5-to win" toggleGroup="$winCondition">
                             <padding>
                                 <Insets left="50.0" top="105.0" />
                             </padding>
