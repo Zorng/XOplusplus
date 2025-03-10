@@ -32,6 +32,7 @@ public class GameOptionSceneController {
 
                         (radiobutton4.isSelected() || radiobutton5.isSelected()) // One win condition must be selected
         ) {
+
             // Check if Portal mode is selected
             if (radiobutton1.isSelected()) {
                 if (radiobutton6.isSelected()) {
@@ -42,6 +43,7 @@ public class GameOptionSceneController {
             } else {
                 Route.get("classic3x3", event); // Default to Classic 3x3
             }
+
         }
     }
 }
