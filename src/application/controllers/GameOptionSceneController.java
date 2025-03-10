@@ -29,6 +29,7 @@ public class GameOptionSceneController {
     public void startButtonCondition(ActionEvent event) throws IOException {
         if (
                 (radiobutton1.isSelected() || radiobutton2.isSelected() || radiobutton3.isSelected()) &&  // One mode must be selected
+
                         (radiobutton4.isSelected() || radiobutton5.isSelected()) // One win condition must be selected
         ) {
             // Check if Portal mode is selected
