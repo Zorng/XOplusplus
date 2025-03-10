@@ -157,6 +157,7 @@ public class Rapid3x3Controller implements Initializable {
     public void setPlayerSymbol(Button button){
         if (playerTurn % 2 == 0){
             // O's turn to play
+            button.setStyle("-fx-text-fill:#2f47fc");
             button.setText("X");
             symbol.setText("O");
             symbol.setStyle("-fx-text-fill:#fa3f2f");
@@ -164,6 +165,7 @@ public class Rapid3x3Controller implements Initializable {
             timeX.setText(String.valueOf(timerX) + "s");
         }
         else if (playerTurn % 2 == 1){
+            button.setStyle("-fx-text-fill:#fa3f2f");
             button.setText("O");
             symbol.setText("X");
             symbol.setStyle("-fx-text-fill:#2f47fc");
@@ -178,6 +180,7 @@ public class Rapid3x3Controller implements Initializable {
         }
         startTimer();
     }
+
 
     public boolean checkIfGameIsOver(){
         for (int a = 0; a < 8; a++) {

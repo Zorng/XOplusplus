@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Classic3x3Controller implements Initializable {
@@ -59,6 +60,7 @@ public class Classic3x3Controller implements Initializable {
 
         buttons.forEach(button ->{
             setupButton(button);
+
             button.setFocusTraversable(false);
         });
         playerTurn = 0;
@@ -85,14 +87,17 @@ public class Classic3x3Controller implements Initializable {
     }
 
     public void resetButton(Button button){
+        button.getStyleClass().add("tile");
         button.setDisable(false);
+        button.setMouseTransparent(false);
         button.setText("");
     }
 
     private void setupButton(Button button) {
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
-            button.setDisable(true);
+
+            button.setMouseTransparent(true);
             if(checkIfGameIsOver()) {
                 buttons.forEach(element -> {
                     element.setDisable(true);
@@ -104,14 +109,20 @@ public class Classic3x3Controller implements Initializable {
     public void setPlayerSymbol(Button button){
         if (playerTurn % 2 == 0){
             // O's turn to play
+
+            button.setStyle("-fx-text-fill:#2f47fc");
             button.setText("X");
             symbol.setText("O");
             symbol.setStyle("-fx-text-fill:#fa3f2f");
+
+
         }
-        else if (playerTurn % 2 == 1){
+        else {
+            button.setStyle("-fx-text-fill:#fa3f2f");
             button.setText("O");
             symbol.setText("X");
             symbol.setStyle("-fx-text-fill:#2f47fc");
+
         }
         playerTurn++;
     }
