@@ -28,11 +28,22 @@ public class GameOptionSceneController {
     @FXML
     public void startButtonCondition(ActionEvent event) throws IOException {
         if (
-                (radiobutton1.isSelected() || radiobutton2.isSelected() || radiobutton3.isSelected()) && // One mode must be selected
-                        (radiobutton4.isSelected() || radiobutton5.isSelected()) && // One win condition must be selected
-                        (!radiobutton6.isSelected() || radiobutton6.isSelected()) // Rapid is optional (either selected or not)
+                (radiobutton1.isSelected() || radiobutton2.isSelected() || radiobutton3.isSelected()) &&  // One mode must be selected
+
+                        (radiobutton4.isSelected() || radiobutton5.isSelected()) // One win condition must be selected
         ) {
-            Route.get("classic5x5", event);
+
+            // Check if Portal mode is selected
+            if (radiobutton1.isSelected()) {
+                if (radiobutton6.isSelected()) {
+                    Route.get("portalRapid", event); // Portal mode with Rapid
+                } else {
+                    Route.get("portal", event); // Normal Portal mode
+                }
+            } else {
+                Route.get("classic3x3", event); // Default to Classic 3x3
+            }
+
         }
     }
 }
