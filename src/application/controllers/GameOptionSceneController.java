@@ -32,6 +32,7 @@ public class GameOptionSceneController {
     }
     @FXML
     public void startButtonCondition(ActionEvent event) throws IOException {
+
         RadioButton selectedMode = (RadioButton) mode.getSelectedToggle();
         RadioButton selectedWinCondition = (RadioButton) winCondition.getSelectedToggle();
         
@@ -74,3 +75,4 @@ public class GameOptionSceneController {
     }
 
 }
+
