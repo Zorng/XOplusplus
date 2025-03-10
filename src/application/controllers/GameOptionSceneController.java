@@ -3,15 +3,19 @@ package application.controllers;
 
 import application.Main;
 import application.utils.Route;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.io.IOException;
 
 public class GameOptionSceneController {
@@ -24,18 +28,43 @@ public class GameOptionSceneController {
     private ToggleGroup winCondition;
     @FXML
     private ToggleGroup mode;
+
+    @FXML
+    private Label portalCondition;
     @FXML
     private RadioButton radiobutton1, radiobutton2, radiobutton3, radiobutton4, radiobutton5, radiobutton6;
+
     @FXML
     private void backButton(ActionEvent event) throws IOException {
         Route.get("menu", event);
     }
+
+    public void initialize() {
+        winCondition.getToggles().forEach(toggle -> {
+            ((RadioButton) toggle).setStyle("visibility: collapse;");
+        });
+        mode.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == radiobutton1) {
+                portalCondition.setStyle("visibility: true;");
+                winCondition.getToggles().forEach(toggle -> {
+                    ((RadioButton) toggle).setStyle("visibility: hidden;");
+                });
+            } else {
+                portalCondition.setStyle("visibility: hidden;");
+                winCondition.getToggles().forEach(toggle -> {
+                    ((RadioButton) toggle).setStyle("visibility: visible;");
+                });
+            }
+        });
+    }
+
+
     @FXML
     public void startButtonCondition(ActionEvent event) throws IOException {
 
         RadioButton selectedMode = (RadioButton) mode.getSelectedToggle();
         RadioButton selectedWinCondition = (RadioButton) winCondition.getSelectedToggle();
-        
+
 
         if (selectedMode != null && selectedWinCondition != null) {
 
@@ -48,11 +77,9 @@ public class GameOptionSceneController {
 
 
             if (modeText.equals("Portal")) {
-                if (winConditionText.equals("3-to win")) {
-                    scene = isRapid ? "portal3x3Rapid" : "portal3x3";
-                } else if (winConditionText.equals("5-to win")) {
-                    scene = isRapid ? "portal5x5Rapid" : "portal5x5";
-                }
+
+                scene = isRapid ? "portalRapid" : "portal";
+
             } else if (modeText.equals("Best of 5")) {
                 if (winConditionText.equals("3-to win")) {
                     scene = isRapid ? "bo53x3Rapid" : "bo53x3";

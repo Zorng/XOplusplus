@@ -93,6 +93,14 @@
                                 <Font size="24.0" />
                             </font>
                         </RadioButton>
+                  <Label fx:id="portalCondition" alignment="BOTTOM_LEFT" prefHeight="147.0" styleClass="h3" text="4-to win">
+                     <HBox.margin>
+                        <Insets left="-390.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="2.0" />
+                     </padding>
+                  </Label>
                     </children>
                 </HBox>
                 <HBox fx:id="rapid_container" prefHeight="156.0" prefWidth="1200.0">
@@ -127,8 +135,8 @@
                         <Font size="32.0" />
                     </font>
                <styleClass>
-                  <String fx:value="button" />
                   <String fx:value="primary" />
+                  <String fx:value="buttonMenu" />
                </styleClass>
                 </Button>
                 <Button fx:id="Back" mnemonicParsing="false" onAction="#backButton" prefHeight="25.0" prefWidth="170.0" stylesheets="@../css/styles.css" text="Back">
@@ -137,7 +145,7 @@
                     </font>
                <styleClass>
                   <String fx:value="secondary" />
-                  <String fx:value="button" />
+                  <String fx:value="buttonMenu-s" />
                </styleClass>
                 </Button>
             </children>

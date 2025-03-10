@@ -1,13 +1,17 @@
 package application.controllers;
 
 import application.utils.Route;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +20,9 @@ public class Classic5x5Controller {
 
     @FXML
     private Label title;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     @FXML
     private Label symbol;
@@ -33,6 +40,7 @@ public class Classic5x5Controller {
     private double pointerX, pointerY;
     private double initialTranslateX, initialTranslateY;
 
+
     public void initialize() {
         buttons = new ArrayList<>();
 
@@ -43,41 +51,48 @@ public class Classic5x5Controller {
                 btn.setStyle("-fx-font-size: 14;");
                 boardGrid.add(btn, col, row);
                 buttons.add(btn);
+
             }
         }
+
+
+        buttons.forEach(btn -> {
+            btn.getStyleClass().add("tile");
+
+        });
 
         setupButtons();
         playerTurn = 0;
         symbol.setText("X");
         symbol.setStyle("-fx-text-fill:#2f47fc");
 
-        boardGrid.setOnMouseClicked((MouseEvent event) -> {
-            pointerX = event.getSceneX();
-            pointerY = event.getSceneY();
-            initialTranslateX = boardGrid.getTranslateX();
-            initialTranslateY = boardGrid.getTranslateY();
-        });
+//        boardGrid.setOnMouseClicked((MouseEvent event) -> {
+//            pointerX = event.getSceneX();
+//            pointerY = event.getSceneY();
+//            initialTranslateX = boardGrid.getTranslateX();
+//            initialTranslateY = boardGrid.getTranslateY();
+//        });
 
-        boardGrid.setOnMouseDragged((MouseEvent event) -> {
-            double deltaX = event.getSceneX() - pointerX;
-            double deltaY = event.getSceneY() - pointerY;
-            boardGrid.setTranslateX(initialTranslateX + deltaX);
-            boardGrid.setTranslateY(initialTranslateY + deltaY);
-        });
+//        boardGrid.setOnMouseDragged((MouseEvent event) -> {
+//            double deltaX = event.getSceneX() - pointerX;
+//            double deltaY = event.getSceneY() - pointerY;
+//            boardGrid.setTranslateX(initialTranslateX + deltaX);
+//            boardGrid.setTranslateY(initialTranslateY + deltaY);
+//        });
 
-        boardGrid.setOnTouchPressed((TouchEvent event) -> {
-            pointerX = event.getTouchPoint().getSceneX();
-            pointerY = event.getTouchPoint().getSceneY();
-            initialTranslateX = boardGrid.getTranslateX();
-            initialTranslateY = boardGrid.getTranslateY();
-        });
-
-        boardGrid.setOnTouchMoved((TouchEvent event) -> {
-            double deltaX = event.getTouchPoint().getSceneX() - pointerX;
-            double deltaY = event.getTouchPoint().getSceneY() - pointerY;
-            boardGrid.setTranslateX(initialTranslateX + deltaX);
-            boardGrid.setTranslateY(initialTranslateY + deltaY);
-        });
+//        boardGrid.setOnTouchPressed((TouchEvent event) -> {
+//            pointerX = event.getTouchPoint().getSceneX();
+//            pointerY = event.getTouchPoint().getSceneY();
+//            initialTranslateX = boardGrid.getTranslateX();
+//            initialTranslateY = boardGrid.getTranslateY();
+//        });
+//
+//        boardGrid.setOnTouchMoved((TouchEvent event) -> {
+//            double deltaX = event.getTouchPoint().getSceneX() - pointerX;
+//            double deltaY = event.getTouchPoint().getSceneY() - pointerY;
+//            boardGrid.setTranslateX(initialTranslateX + deltaX);
+//            boardGrid.setTranslateY(initialTranslateY + deltaY);
+//        });
     }
 
     @FXML
@@ -96,21 +111,26 @@ public class Classic5x5Controller {
 
     public void resetButton(Button button){
         button.setDisable(false);
+        button.setMouseTransparent(false);
         button.setText("");
     }
 
-    public void setPlayerSymbol(Button button) {
-        if(!button.getText().isEmpty()) return;
-
-        if(playerTurn % 2 == 0){
+    public void setPlayerSymbol(Button button){
+        if (playerTurn % 2 == 0){
+            // O's turn to play
+            button.setStyle("-fx-text-fill:#2f47fc");
             button.setText("X");
-            symbol.setText("X");
-            symbol.setStyle("-fx-text-fill:#fa3f2f");
-        }
-        else if (playerTurn % 2 == 1){
-            button.setText("O");
             symbol.setText("O");
+            symbol.setStyle("-fx-text-fill:#fa3f2f");
+
+
+        }
+        else {
+            button.setStyle("-fx-text-fill:#fa3f2f");
+            button.setText("O");
+            symbol.setText("X");
             symbol.setStyle("-fx-text-fill:#2f47fc");
+
         }
         playerTurn++;
     }
@@ -159,8 +179,7 @@ public class Classic5x5Controller {
         for (Button button : buttons) {
                 button.setOnAction(event -> {
                     setPlayerSymbol(button);
-                    button.setDisable(true);
-
+                    button.setMouseTransparent(true);
                     if (checkIfGameOver(buttons)) {
                         title.setText("Game Over");
                         for (Button btn : buttons) {
