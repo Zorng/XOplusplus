@@ -5,6 +5,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.CacheHint;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -55,6 +56,8 @@ public class Classic5x5Controller {
             }
         }
 
+        boardGrid.setCache(true);
+        boardGrid.setCacheHint(CacheHint.SPEED);
 
         buttons.forEach(btn -> {
             btn.getStyleClass().add("tile");
