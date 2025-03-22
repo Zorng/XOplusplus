@@ -3,6 +3,7 @@ package application.controllers;
 import application.utils.Route;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.CacheHint;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -61,6 +62,9 @@ public class BestOfFive5x5Controller {
             btn.getStyleClass().add("tile");
 
         });
+
+        boardGrid.setCache(true);
+        boardGrid.setCacheHint(CacheHint.SPEED);
 
         setupButtons();
         playerTurn = 0;
