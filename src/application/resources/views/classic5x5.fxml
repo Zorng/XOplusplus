@@ -21,11 +21,12 @@
                         <Font size="39.0" />
                     </font>
                 </Label>
-                <Label fx:id="symbol">
-                    <font>
-                        <Font size="32.0" />
-                    </font>
-                </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="h3" stylesheets="@../css/styles.css">
+               <children>
+                  <Label fx:id="symbol" alignment="CENTER" text="dummy " />
+                  <Label text=" To Play" />
+               </children>
+            </HBox>
             </children>
         </VBox>
         <HBox alignment="CENTER" prefHeight="592.0" prefWidth="1200.0">
