@@ -84,7 +84,7 @@ public class GameOptionSceneController {
                 if (winConditionText.equals("3-to win")) {
                     scene = isRapid ? "bo53x3Rapid" : "bo53x3";
                 } else if (winConditionText.equals("5-to win")) {
-                    scene = isRapid ? "bo55x5Rapid" : "bo55x5";
+                    scene = isRapid ? "bo55x5Rapid" : "bestofFive5x5";
                 }
             } else if (modeText.equals("Classic")) {
                 if (winConditionText.equals("3-to win")) {
