@@ -34,7 +34,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="timeX" alignment="CENTER" layoutX="121.0" layoutY="15.0" prefHeight="29.0" prefWidth="201.0" text="0s">
+                  <Label fx:id="timeX" alignment="CENTER" layoutX="121.0" layoutY="15.0" prefHeight="29.0" prefWidth="201.0" text="8s">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -49,7 +49,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="timeO" alignment="CENTER" layoutX="899.0" layoutY="15.0" prefHeight="29.0" prefWidth="201.0" text="0s">
+                  <Label fx:id="timeO" alignment="CENTER" layoutX="899.0" layoutY="15.0" prefHeight="29.0" prefWidth="201.0" text="8s">
                      <font>
                         <Font size="16.0" />
                      </font>
