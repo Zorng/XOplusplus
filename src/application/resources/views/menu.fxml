@@ -26,9 +26,10 @@
                   <Button fx:id="playButton" mnemonicParsing="false" onAction="#playButtonListener" stylesheets="@../css/styles.css" text="Play">
                      <styleClass>
                         <String fx:value="primary" />
+                        <String fx:value="buttonMenu" />
                         <String fx:value="h2" />
                      </styleClass></Button>
-                  <Button fx:id="htpButton" mnemonicParsing="false" stylesheets="@../css/styles.css" text="How to play">
+                  <Button fx:id="htpButton" mnemonicParsing="false" onAction="#howButtonListener" prefWidth="214.0" style="-fx-background-radius: 8;" stylesheets="@../css/styles.css" text="How to play">
                      <styleClass>
                         <String fx:value="secondary" />
                         <String fx:value="h2" />
@@ -36,15 +37,17 @@
                   <Button fx:id="creditButton" mnemonicParsing="false" stylesheets="@../css/styles.css" text="Credits">
                      <styleClass>
                         <String fx:value="secondary" />
+                        <String fx:value="buttonMenu" />
                         <String fx:value="h2" />
                      </styleClass></Button>
                </children>
             </VBox>
             <VBox fx:id="exitOptionContainer" alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="exitButton" mnemonicParsing="false" stylesheets="@../css/styles.css" text="Button">
+                  <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonListener" stylesheets="@../css/styles.css" text="Exit">
                      <styleClass>
                         <String fx:value="contrast" />
+                        <String fx:value="buttonMenu" />
                         <String fx:value="h2" />
                      </styleClass></Button>
                </children>
@@ -57,7 +60,7 @@
       <VBox fx:id="Footer" alignment="CENTER">
          <children>
             <Label alignment="CENTER" text="CADT, Department of  Computer Science, School of Software Engineer" />
-            <Label alignment="CENTER" layoutX="600.0" layoutY="102.0" stylesheets="@../css/styles.css" text="OOP Project, Lecturer: Mr. Ly Vathana, Instructor: Mr. Korat Natt" />
+            <Label alignment="CENTER" layoutX="600.0" layoutY="102.0" stylesheets="@../css/styles.css" text="OOP Project, Lecturer: Mr. Lay Vathana, Instructor: Mr. Korat Natt" />
             <Label alignment="CENTER" layoutX="600.0" layoutY="110.0" text="Gen 10, Group 4, Team X: Lim Ieangzorng, Chey Rotana, Tong Vorak, Rith Seyhak" />
          </children>
       </VBox>

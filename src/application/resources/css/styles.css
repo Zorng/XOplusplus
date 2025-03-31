@@ -13,19 +13,35 @@
 
 .h3 {
     -fx-font-size: 24px;
-    -fx-font-weight: medium;
+    -fx-font-weight: 500;
 }
 
 .h4 {
     -fx-font-size: 16px;
-    -fx-font-weight: normal;
+    -fx-font-weight: 400;
 }
 
-.button {
-    -fx-pref-width: 220px;
-    -fx-pref-height: 80px;
+.buttonMenu {
+    -fx-pref-width: 180px;
+    -fx-pref-height: 60px;
     -fx-background-radius: 10px;
 }
+
+.buttonMenu-s {
+    -fx-pref-width: 140px;
+    -fx-pref-height: 40px;
+    -fx-background-radius: 8px;
+}
+
+.tile {
+    -fx-background-color: white;
+    -fx-border-style: none;
+    -fx-border-radius: 0px;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-font-size: 32px;
+}
+
 
 .primary {
     -fx-background-color: #1DE857;
@@ -48,4 +64,27 @@
 
 .contrast:hover {
     -fx-background-color: #DB6868;
+}
+.symX {
+    -fx-text-fill:#2f47fc;
+}
+
+.symO {
+    -fx-text-fill:#fa3f2f;
+}
+
+.board-symX {
+    -fx-text-fill:#2f47fc;
+    -fx-font-size: 24px;
+}
+
+.board-symO {
+    -fx-text-fill:#fa3f2f;
+    -fx-font-size: 24px;
+}
+
+.portal-border {
+    -fx-border-width: 10px;
+    -fx-border-style: solid;
+    -fx-border-color: #7A18FA #FA9018;
 }

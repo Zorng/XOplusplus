@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="Game_option" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.Gameoptionscene">
+<VBox fx:id="Game_option" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.GameOptionSceneController">
     <children>
-        <Label prefHeight="105.0" prefWidth="450.0" text="Game Option">
+        <Label prefHeight="105.0" prefWidth="450.0" text="Game Option" VBox.vgrow="ALWAYS">
             <font>
                 <Font name="System Bold" size="72.0" />
             </font>
@@ -27,7 +27,7 @@
             <children>
                 <HBox fx:id="mode_container" prefHeight="156.0" prefWidth="1200.0">
                     <children>
-                        <Label prefHeight="147.0" prefWidth="249.0" text="Mode:">
+                        <Label text="Mode:" HBox.hgrow="ALWAYS">
                             <font>
                                 <Font size="32.0" />
                             </font>
@@ -35,7 +35,7 @@
                                 <Insets left="100.0" top="100.0" />
                             </padding>
                         </Label>
-                        <RadioButton fx:id="radiobutton1" mnemonicParsing="false" prefHeight="147.0" prefWidth="194.0" selected="true" text="Portal">
+                        <RadioButton fx:id="radiobutton1" alignment="BOTTOM_LEFT" mnemonicParsing="false" selected="true" text="Portal" HBox.hgrow="ALWAYS">
                             <padding>
                                 <Insets left="50.0" top="105.0" />
                             </padding>
@@ -46,7 +46,7 @@
                         <ToggleGroup fx:id="mode" />
                      </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="radiobutton2" mnemonicParsing="false" prefHeight="149.0" prefWidth="194.0" text="Best of 5" toggleGroup="$mode">
+                        <RadioButton fx:id="radiobutton2" alignment="BOTTOM_LEFT" mnemonicParsing="false" text="Best of 5" toggleGroup="$mode" HBox.hgrow="ALWAYS">
                             <padding>
                                 <Insets left="50.0" top="105.0" />
                             </padding>
@@ -54,7 +54,7 @@
                                 <Font size="24.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton fx:id="radiobutton3" mnemonicParsing="false" prefHeight="147.0" prefWidth="194.0" text="Classic" toggleGroup="$mode">
+                        <RadioButton fx:id="radiobutton3" alignment="BOTTOM_LEFT" mnemonicParsing="false" text="Classic" toggleGroup="$mode" HBox.hgrow="ALWAYS">
                             <padding>
                                 <Insets left="50.0" top="105.0" />
                             </padding>
@@ -64,7 +64,7 @@
                         </RadioButton>
                     </children>
                 </HBox>
-                <HBox fx:id="line_container" prefHeight="156.0" prefWidth="1200.0">
+                <HBox fx:id="line_container" VBox.vgrow="ALWAYS">
                     <children>
                         <Label prefHeight="147.0" prefWidth="314.0" text="Win Condition:">
                             <font>
@@ -82,10 +82,15 @@
                                 <Font size="24.0" />
                             </font>
                      <toggleGroup>
-                        <ToggleGroup fx:id="wincondition" />
+                        <ToggleGroup fx:id="winCondition" />
                      </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="radiobutton5" mnemonicParsing="false" prefHeight="147.0" prefWidth="194.0" text="5-to win" toggleGroup="$wincondition">
+                  <Label fx:id="bo5Condition" alignment="BOTTOM_LEFT" prefHeight="147.0" styleClass="h3" text="5-to win">
+                     <padding>
+                        <Insets bottom="2.0" left="-200.0" />
+                     </padding>
+                  </Label>
+                        <RadioButton fx:id="radiobutton5" mnemonicParsing="false" prefHeight="147.0" prefWidth="194.0" text="5-to win" toggleGroup="$winCondition">
                             <padding>
                                 <Insets left="50.0" top="105.0" />
                             </padding>
@@ -93,11 +98,19 @@
                                 <Font size="24.0" />
                             </font>
                         </RadioButton>
+                  <Label fx:id="portalCondition" alignment="BOTTOM_LEFT" prefHeight="147.0" styleClass="h3" text="4-to win">
+                     <HBox.margin>
+                        <Insets left="-390.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="2.0" />
+                     </padding>
+                  </Label>
                     </children>
                 </HBox>
                 <HBox fx:id="rapid_container" prefHeight="156.0" prefWidth="1200.0">
                     <children>
-                        <Label prefHeight="147.0" prefWidth="249.0" text="Rapid:">
+                        <Label text="Rapid:" HBox.hgrow="ALWAYS">
                             <font>
                                 <Font size="32.0" />
                             </font>
@@ -105,7 +118,7 @@
                                 <Insets left="100.0" top="100.0" />
                             </padding>
                         </Label>
-                        <RadioButton fx:id="radiobutton6" mnemonicParsing="false" prefHeight="147.0" prefWidth="194.0" text="Enable">
+                        <RadioButton fx:id="radiobutton6" mnemonicParsing="false" text="Enable">
                             <padding>
                                 <Insets left="50.0" top="105.0" />
                             </padding>
@@ -122,22 +135,22 @@
         </VBox>
         <VBox fx:id="button_container" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
             <children>
-                <Button fx:id="Start" mnemonicParsing="false" onAction="#startbuttoncondition" prefHeight="80.0" prefWidth="220.0" stylesheets="@styles.css" text="Start">
+                <Button fx:id="Start" mnemonicParsing="false" onAction="#startButtonCondition" prefHeight="80.0" prefWidth="220.0" stylesheets="@../css/styles.css" text="Start">
                     <font>
                         <Font size="32.0" />
                     </font>
                <styleClass>
-                  <String fx:value="button" />
                   <String fx:value="primary" />
+                  <String fx:value="buttonMenu" />
                </styleClass>
                 </Button>
-                <Button fx:id="Back" mnemonicParsing="false" onAction="#Backbutton" prefHeight="25.0" prefWidth="170.0" stylesheets="@styles.css" text="Back">
+                <Button fx:id="Back" mnemonicParsing="false" onAction="#backButton" prefHeight="25.0" prefWidth="170.0" stylesheets="@../css/styles.css" text="Back">
                     <font>
                         <Font size="24.0" />
                     </font>
                <styleClass>
                   <String fx:value="secondary" />
-                  <String fx:value="button" />
+                  <String fx:value="buttonMenu-s" />
                </styleClass>
                 </Button>
             </children>
