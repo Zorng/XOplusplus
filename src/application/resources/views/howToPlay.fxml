@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.HowToPlayController">
+   <children>
+      <Label contentDisplay="CENTER" styleClass="h2" text="How to play">
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
+      </Label>
+      <VBox layoutX="600.0" layoutY="300.0" prefWidth="598.0" spacing="5.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Best of five:" />
+            <Text layoutX="20.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   Five in a row to score a line. Play without resetting until one of the player score 3 lines. ">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text layoutX="20.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Rapid:">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text layoutX="30.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   Both player start the game with a limited time to play. If one of the players’ time hits zero, that player loses. Placing a move increases the time of that player by 1 second." wrappingWidth="500.0">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text layoutX="20.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Portal:">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text layoutX="30.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   In portal mode, the board is 6x6 so that the game is fair regardless of who plays first. Four in a row to score a line. A line can be score if they are connected via the portals. There are 2 vertical portals, 2 horizontal portals, 2 main diagonal portals and 4 sub diagonal portal (the diagonal cells adjacent the the main diagonal)." wrappingWidth="500.0">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </VBox>
+      <Button fx:id="backToMenu" mnemonicParsing="false" onAction="#backToMain" text="Back">
+         <styleClass>
+            <String fx:value="buttonMenu-s" />
+            <String fx:value="secondary" />
+            <String fx:value="h4" />
+         </styleClass>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

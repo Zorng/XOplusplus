@@ -1,22 +1,17 @@
 package application.controllers;
 
-import application.utils.Route;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.ResourceBundle;
 
-public class Rapid3x3Controller implements Initializable {
+public class Rapid3x3Controller extends Classic3x3Controller {
     @FXML
     private Button button1;
 
@@ -45,12 +40,6 @@ public class Rapid3x3Controller implements Initializable {
     private Button button9;
 
     @FXML
-    private Label title;
-
-    @FXML
-    private Label symbol;
-
-    @FXML
     private Label timeX;
 
     @FXML
@@ -60,15 +49,10 @@ public class Rapid3x3Controller implements Initializable {
     private int timerO = 3;
     private Timeline timer;
 
-    private int playerTurn;
-
-    ArrayList<Button> buttons;
-
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
         buttons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7,button8,button9));
-
         buttons.forEach(button ->{
             setupButton(button);
             button.setFocusTraversable(false);
@@ -80,7 +64,6 @@ public class Rapid3x3Controller implements Initializable {
         startTimer(); // start timer immediate when game start
 
     }
-
     // timer method
     private void startTimer(){
         timer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
@@ -91,7 +74,6 @@ public class Rapid3x3Controller implements Initializable {
                 timerO--;
                 timeO.setText(String.valueOf(timerO)+"s");
             }
-
             if(timerX <= 0){
                 title.setText("O won");
                 timer.stop();
@@ -108,16 +90,9 @@ public class Rapid3x3Controller implements Initializable {
         timer.play();
     }
 
+    @Override
     @FXML
-    private Button backButton;
-
-    @FXML
-    void backToOption(ActionEvent event) throws IOException {
-        Route.get("gameOption", event);
-    }
-
-    @FXML
-    void restartGame(ActionEvent event) {
+    public void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
         title.setText("Classic 3x3");
         playerTurn = 0;
@@ -137,23 +112,7 @@ public class Rapid3x3Controller implements Initializable {
         startTimer();
     }
 
-    public void resetButton(Button button){
-        button.setDisable(false);
-        button.setText("");
-    }
-
-    private void setupButton(Button button) {
-        button.setOnMouseClicked(mouseEvent -> {
-            setPlayerSymbol(button);
-            button.setDisable(true);
-            if(checkIfGameIsOver()) {
-                buttons.forEach(element -> {
-                    element.setDisable(true);
-                });
-            }
-        });
-    }
-
+    @Override
     public void setPlayerSymbol(Button button){
         if (playerTurn % 2 == 0){
             // O's turn to play
@@ -181,8 +140,7 @@ public class Rapid3x3Controller implements Initializable {
         startTimer();
     }
 
-
-    public boolean checkIfGameIsOver(){
+    public boolean checkIfGameOver(){
         for (int a = 0; a < 8; a++) {
             String line = switch (a) {
                 case 0 -> button1.getText() + button2.getText() + button3.getText();
@@ -202,7 +160,6 @@ public class Rapid3x3Controller implements Initializable {
                 timer.stop();
                 disableAllButtons();
                 return true;
-
             }
             //O winner
             else if (line.equals("OOO")) {
@@ -212,7 +169,6 @@ public class Rapid3x3Controller implements Initializable {
                 return true;
             }
         }
-
         // check for draw game
         boolean allFilled = buttons.stream().allMatch(b -> !b.getText().isEmpty());
         if (allFilled) {
@@ -220,7 +176,6 @@ public class Rapid3x3Controller implements Initializable {
             timer.stop();
             return true;
         }
-
         return false;
     }
     private void disableAllButtons() {

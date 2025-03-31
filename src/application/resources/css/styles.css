@@ -22,14 +22,14 @@
 }
 
 .buttonMenu {
-    -fx-pref-width: 220px;
-    -fx-pref-height: 80px;
+    -fx-pref-width: 180px;
+    -fx-pref-height: 60px;
     -fx-background-radius: 10px;
 }
 
 .buttonMenu-s {
-    -fx-pref-width: 160px;
-    -fx-pref-height: 50px;
+    -fx-pref-width: 140px;
+    -fx-pref-height: 40px;
     -fx-background-radius: 8px;
 }
 

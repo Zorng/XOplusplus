@@ -1,19 +1,14 @@
 package application.controllers;
 
-import application.utils.Route;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.ResourceBundle;
 
-public class PortalController implements Initializable {
+public class PortalController extends GameController {
 
     @FXML
     private Button backButton;
@@ -126,18 +121,9 @@ public class PortalController implements Initializable {
     @FXML
     private Button btn9;
 
-    @FXML
-    private Label symbol;
-
-    @FXML
-    private Label title;
-
-    private int playerTurn;
-
-    ArrayList<Button> buttons;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
         buttons = new ArrayList<>(Arrays.asList(
                 btn0,  btn1,  btn2,  btn3,  btn4,  btn5,
                 btn6,  btn7,  btn8,  btn9,  btn10, btn11,
@@ -154,16 +140,11 @@ public class PortalController implements Initializable {
         title.setText("Portal");
         symbol.setText("X");
         symbol.setStyle("-fx-text-fill:#2f47fc");
-
     }
 
-    @FXML
-    void backToOption(ActionEvent event) throws IOException {
-        Route.get("gameOption", event);
-    }
 
     @FXML
-    void restartGame(ActionEvent event) {
+    public void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
         title.setText("Portal");
         playerTurn = 0;
@@ -171,48 +152,7 @@ public class PortalController implements Initializable {
         symbol.setStyle("-fx-text-fill:#2f47fc");
     }
 
-
-
-    public void resetButton(Button button){
-        button.setDisable(false);
-        button.setMouseTransparent(false);
-        button.setText("");
-    }
-
-    private void setupButton(Button button) {
-        button.setOnMouseClicked(mouseEvent -> {
-            setPlayerSymbol(button);
-            button.setMouseTransparent(true);
-            if(checkIfGameIsOver()) {
-                buttons.forEach(element -> {
-                    element.setDisable(true);
-                });
-            }
-        });
-    }
-
-    public void setPlayerSymbol(Button button){
-        if (playerTurn % 2 == 0){
-            // O's turn to play
-            button.setStyle("-fx-text-fill:#2f47fc");
-            button.setText("X");
-            symbol.setText("O");
-            symbol.setStyle("-fx-text-fill:#fa3f2f");
-
-
-        }
-        else {
-            button.setStyle("-fx-text-fill:#fa3f2f");
-            button.setText("O");
-            symbol.setText("X");
-            symbol.setStyle("-fx-text-fill:#2f47fc");
-
-        }
-        playerTurn++;
-    }
-
-    public boolean checkIfGameIsOver(){
-
+    public boolean checkIfGameOver(){
         StringBuilder line = new StringBuilder();
 
         //check vertical portal

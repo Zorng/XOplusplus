@@ -29,10 +29,9 @@
                         <String fx:value="buttonMenu" />
                         <String fx:value="h2" />
                      </styleClass></Button>
-                  <Button fx:id="htpButton" mnemonicParsing="false" stylesheets="@../css/styles.css" text="How to play">
+                  <Button fx:id="htpButton" mnemonicParsing="false" onAction="#howButtonListener" prefWidth="214.0" style="-fx-background-radius: 8;" stylesheets="@../css/styles.css" text="How to play">
                      <styleClass>
                         <String fx:value="secondary" />
-                        <String fx:value="buttonMenu" />
                         <String fx:value="h2" />
                      </styleClass></Button>
                   <Button fx:id="creditButton" mnemonicParsing="false" stylesheets="@../css/styles.css" text="Credits">

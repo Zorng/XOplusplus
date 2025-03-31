@@ -1,50 +1,17 @@
 package application.controllers;
 
-import application.utils.Route;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.CacheHint;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
-import javafx.util.Duration;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
-public class Classic5x5Controller {
-
-    @FXML
-    private Label title;
-
-    @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
-    private Label symbol;
-
-    private int playerTurn;
-
-    @FXML
-    private Button backButton;
-    @FXML
-    ArrayList<Button> buttons;
-
+public class Classic5x5Controller extends GameController {
     @FXML
     private GridPane boardGrid;
-
-    private double pointerX, pointerY;
-    private double initialTranslateX, initialTranslateY;
-
-
     public void initialize() {
         buttons = new ArrayList<>();
-
         for (int row = 0; row < 25; row++) {
             for (int col = 0; col < 25; col++) {
                 Button btn = new Button("");
@@ -52,59 +19,21 @@ public class Classic5x5Controller {
                 btn.setStyle("-fx-font-size: 14;");
                 boardGrid.add(btn, col, row);
                 buttons.add(btn);
-
+                setupButton(btn);
             }
         }
-
         boardGrid.setCache(true);
         boardGrid.setCacheHint(CacheHint.SPEED);
-
         buttons.forEach(btn -> {
             btn.getStyleClass().add("tile");
-
         });
-
-        setupButtons();
         playerTurn = 0;
         symbol.setText("X");
         symbol.setStyle("-fx-text-fill:#2f47fc");
-
-//        boardGrid.setOnMouseClicked((MouseEvent event) -> {
-//            pointerX = event.getSceneX();
-//            pointerY = event.getSceneY();
-//            initialTranslateX = boardGrid.getTranslateX();
-//            initialTranslateY = boardGrid.getTranslateY();
-//        });
-
-//        boardGrid.setOnMouseDragged((MouseEvent event) -> {
-//            double deltaX = event.getSceneX() - pointerX;
-//            double deltaY = event.getSceneY() - pointerY;
-//            boardGrid.setTranslateX(initialTranslateX + deltaX);
-//            boardGrid.setTranslateY(initialTranslateY + deltaY);
-//        });
-
-//        boardGrid.setOnTouchPressed((TouchEvent event) -> {
-//            pointerX = event.getTouchPoint().getSceneX();
-//            pointerY = event.getTouchPoint().getSceneY();
-//            initialTranslateX = boardGrid.getTranslateX();
-//            initialTranslateY = boardGrid.getTranslateY();
-//        });
-//
-//        boardGrid.setOnTouchMoved((TouchEvent event) -> {
-//            double deltaX = event.getTouchPoint().getSceneX() - pointerX;
-//            double deltaY = event.getTouchPoint().getSceneY() - pointerY;
-//            boardGrid.setTranslateX(initialTranslateX + deltaX);
-//            boardGrid.setTranslateY(initialTranslateY + deltaY);
-//        });
     }
 
     @FXML
-    void backToOption(ActionEvent event) throws IOException {
-        Route.get("gameOption", event);
-    }
-
-    @FXML
-    void restartGame(ActionEvent event) {
+    public void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
         title.setText("Classic 5x5");
         playerTurn = 0;
@@ -112,32 +41,7 @@ public class Classic5x5Controller {
         symbol.setStyle("-fx-text-fill:#2f47fc");
     }
 
-    public void resetButton(Button button){
-        button.setDisable(false);
-        button.setMouseTransparent(false);
-        button.setText("");
-    }
-
-    public void setPlayerSymbol(Button button){
-        if (playerTurn % 2 == 0){
-            // O's turn to play
-            button.setStyle("-fx-text-fill:#2f47fc");
-            button.setText("X");
-            symbol.setText("O");
-            symbol.setStyle("-fx-text-fill:#fa3f2f");
-
-
-        }
-        else {
-            button.setStyle("-fx-text-fill:#fa3f2f");
-            button.setText("O");
-            symbol.setText("X");
-            symbol.setStyle("-fx-text-fill:#2f47fc");
-
-        }
-        playerTurn++;
-    }
-    public boolean checkIfGameOver(ArrayList<Button> buttons) {
+    boolean checkIfGameOver() {
         int gridSize = 25;
         int winCondition = 5;
 
@@ -176,20 +80,5 @@ public class Classic5x5Controller {
             count++;
         }
         return count == winCondition;
-    }
-
-    private void setupButtons() {
-        for (Button button : buttons) {
-                button.setOnAction(event -> {
-                    setPlayerSymbol(button);
-                    button.setMouseTransparent(true);
-                    if (checkIfGameOver(buttons)) {
-                        title.setText("Game Over");
-                        for (Button btn : buttons) {
-                            btn.setDisable(true);
-                        }
-                    }
-            });
-        }
     }
 }

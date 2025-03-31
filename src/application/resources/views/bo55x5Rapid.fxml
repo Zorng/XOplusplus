@@ -12,49 +12,69 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.BestOfFive5x5Controller">
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.BestOfFive5x5RapidController">
     <children>
         <VBox alignment="CENTER" prefHeight="111.0" prefWidth="1208.0">
             <children>
-                <Label fx:id="title" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="573.0" styleClass="h2" text="BO5 5-TO-WIN" textAlignment="CENTER">
+                <Label fx:id="title" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="573.0" styleClass="h2" text="BO5 5-TO-WIN Rapid" textAlignment="CENTER">
                     <font>
                         <Font size="30.0" />
                     </font>
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
                 </Label>
-                <HBox alignment="CENTER" prefHeight="56.0" prefWidth="1200.0">
-                    <VBox.margin>
-                        <Insets bottom="10.0" />
-                    </VBox.margin>
-                    <children>
-                        <Label fx:id="player1WinCounter" alignment="CENTER" prefHeight="29.0" prefWidth="201.0" text="Player 1 Wins: 0">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="player2WinCounter" alignment="CENTER" prefHeight="29.0" prefWidth="175.0" text="Player 2 Wins: 0">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="42.0" prefWidth="1154.0">
-                    <children>
-                        <Label fx:id="symbol" alignment="CENTER" text="dummy ">
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </Label>
-                        <Label prefHeight="27.0" prefWidth="75.0" text=" To Play">
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </HBox>
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="1200.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <children>
+                  <Label alignment="CENTER_RIGHT" layoutX="221.0" layoutY="15.0" prefHeight="29.0" prefWidth="201.0" text="X:" textFill="RED">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="timeX" alignment="CENTER" layoutX="121.0" layoutY="15.0" prefHeight="29.0" prefWidth="201.0" text="0s">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="player1WinCounter" alignment="CENTER" prefHeight="29.0" prefWidth="201.0" text="Player 1 Wins: 0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="player2WinCounter" alignment="CENTER" prefHeight="29.0" prefWidth="175.0" text="Player 2 Wins: 0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="timeO" alignment="CENTER" layoutX="899.0" layoutY="15.0" prefHeight="29.0" prefWidth="201.0" text="0s">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="422.0" layoutY="15.0" prefHeight="29.0" prefWidth="201.0" text=":O" textFill="BLUE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="1154.0">
+               <children>
+                      <Label fx:id="symbol" alignment="CENTER" text="dummy ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                      <Label prefHeight="27.0" prefWidth="75.0" text=" To Play">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
             </children>
         </VBox>
         <HBox alignment="CENTER" prefHeight="592.0" prefWidth="1200.0">

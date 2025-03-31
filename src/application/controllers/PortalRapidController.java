@@ -16,11 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class PortalRapidController implements Initializable {
-
-    @FXML
-    private Button backButton;
-
+public class PortalRapidController extends PortalController {
     @FXML
     private Button btn0;
 
@@ -129,11 +125,6 @@ public class PortalRapidController implements Initializable {
     @FXML
     private Button btn9;
 
-    @FXML
-    private Label symbol;
-
-    @FXML
-    private Label title;
 
     @FXML
     private Label timeX;
@@ -141,16 +132,12 @@ public class PortalRapidController implements Initializable {
     @FXML
     private Label timeO;
 
-    private int playerTurn;
-
     private int timerX = 8;
     private int timerO = 8;
     private Timeline timer;
 
-    ArrayList<Button> buttons;
-
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
         buttons = new ArrayList<>(Arrays.asList(
                 btn0,  btn1,  btn2,  btn3,  btn4,  btn5,
                 btn6,  btn7,  btn8,  btn9,  btn10, btn11,
@@ -183,7 +170,6 @@ public class PortalRapidController implements Initializable {
                 timerO--;
                 timeO.setText(String.valueOf(timerO)+"s");
             }
-
             if(timerX <= 0){
                 title.setText("O won");
                 timer.stop();
@@ -205,12 +191,7 @@ public class PortalRapidController implements Initializable {
     }
 
     @FXML
-    void backToOption(ActionEvent event) throws IOException {
-        Route.get("gameOption", event);
-    }
-
-    @FXML
-    void restartGame(ActionEvent event) {
+    public void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
         title.setText("Portal");
         playerTurn = 0;
@@ -230,25 +211,6 @@ public class PortalRapidController implements Initializable {
         startTimer();
     }
 
-    public void resetButton(Button button){
-        button.setDisable(false);
-        button.setMouseTransparent(false);
-        button.setText("");
-    }
-
-    private void setupButton(Button button) {
-        button.setOnMouseClicked(mouseEvent -> {
-            setPlayerSymbol(button);
-            button.setMouseTransparent(true);
-            if(checkIfGameIsOver()) {
-                timer.stop();
-                buttons.forEach(element -> {
-                    element.setDisable(true);
-                });
-            }
-        });
-    }
-
     public void setPlayerSymbol(Button button){
         if (playerTurn % 2 == 0){
             // O's turn to play
@@ -259,9 +221,6 @@ public class PortalRapidController implements Initializable {
             symbol.setStyle("-fx-text-fill:#fa3f2f");
             timeX.setText(String.valueOf(timerX) + "s");
             timeO.setText(String.valueOf(timerO) + "s");
-
-
-
         }
         else {
             button.setStyle("-fx-text-fill:#fa3f2f");
@@ -271,12 +230,12 @@ public class PortalRapidController implements Initializable {
             timerO++;
             timeX.setText(String.valueOf(timerX) + "s");
             timeO.setText(String.valueOf(timerO) + "s");
-
         }
         playerTurn++;
     }
 
-    public boolean checkIfGameIsOver(){
+    @Override
+    public boolean checkIfGameOver(){
 
         StringBuilder line = new StringBuilder();
 
@@ -311,7 +270,6 @@ public class PortalRapidController implements Initializable {
             }
             line.setLength(0);
         }
-
         //check classic 4x4 horizontal
         for(int l = 0; l < 13; l+=6) {
             for(int k = 0; k < 3; k++) {
@@ -326,9 +284,7 @@ public class PortalRapidController implements Initializable {
                 }
             }
         }
-
         //check classic 4x4 vertical
-
         for(int k = 0; k < 13; k+=6) {
             for(int l = 0; l < 3; l++) {
                 for(int j = l; j < 4+l; j++) {
@@ -342,8 +298,6 @@ public class PortalRapidController implements Initializable {
                 }
             }
         }
-
-
         //check classic diagonal
         for(int k = 0; k < 13; k+=6) {
             for(int j = k; j < 3 + k; j++) {
