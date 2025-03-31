@@ -60,7 +60,7 @@
       <VBox fx:id="Footer" alignment="CENTER">
          <children>
             <Label alignment="CENTER" text="CADT, Department of  Computer Science, School of Software Engineer" />
-            <Label alignment="CENTER" layoutX="600.0" layoutY="102.0" stylesheets="@../css/styles.css" text="OOP Project, Lecturer: Mr. Lay Vathana, Instructor: Mr. Korat Natt" />
+            <Label alignment="CENTER" layoutX="600.0" layoutY="102.0" stylesheets="@../css/styles.css" text="OOP Project, Lecturer: Mr. Lay Vathna, Instructor: Mr. Korat Natt" />
             <Label alignment="CENTER" layoutX="600.0" layoutY="110.0" text="Gen 10, Group 4, Team X: Lim Ieangzorng, Chey Rotana, Tong Vorak, Rith Seyhak" />
          </children>
       </VBox>
