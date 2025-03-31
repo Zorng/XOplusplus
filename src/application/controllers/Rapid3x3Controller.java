@@ -1,12 +1,10 @@
 package application.controllers;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import application.utils.Rapid;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,10 +43,7 @@ public class Rapid3x3Controller extends Classic3x3Controller {
     @FXML
     private Label timeO;
 
-    private int timerX = 3;
-    private int timerO = 3;
-    private Timeline timer;
-
+    Rapid rapid = new Rapid(3,3);
 
     @Override
     public void initialize() {
@@ -61,35 +56,9 @@ public class Rapid3x3Controller extends Classic3x3Controller {
         symbol.setText("X");
         symbol.setStyle("-fx-text-fill:#2f47fc");
 
-        startTimer(); // start timer immediate when game start
+        rapid.startTimer(playerTurn, timeX, timeO, title, buttons); // start timer immediate when game start
 
     }
-    // timer method
-    private void startTimer(){
-        timer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            if(playerTurn % 2 == 0){
-                timerX--;
-                timeX.setText(String.valueOf(timerX)+"s");
-            } else {
-                timerO--;
-                timeO.setText(String.valueOf(timerO)+"s");
-            }
-            if(timerX <= 0){
-                title.setText("O won");
-                timer.stop();
-                disableAllButtons();
-            } else if(timerO <= 0){
-                title.setText("X won");
-                timer.stop();
-                disableAllButtons();
-            }
-        }));
-        // set timer to run indefinitely, without stop auto
-        timer.setCycleCount(Timeline.INDEFINITE);
-        // start time to begin cd
-        timer.play();
-    }
-
     @Override
     @FXML
     public void restartGame(ActionEvent event) {
@@ -100,16 +69,16 @@ public class Rapid3x3Controller extends Classic3x3Controller {
         symbol.setStyle("-fx-text-fill:#2f47fc");
 
         // reset timer for both X and O
-        timerX = 3;
-        timerO = 3;
+        rapid.timerX = 3;
+        rapid.timerO = 3;
         // update timer label
-        timeX.setText(String.valueOf(timerX)+"s");
-        timeO.setText(String.valueOf(timerO)+"s");
+        timeX.setText(String.valueOf(rapid.timerX)+"s");
+        timeO.setText(String.valueOf(rapid.timerO)+"s");
 
-        if(timer != null){
-            timer.stop();
+        if(rapid.timer != null){
+            rapid.timer.stop();
         }
-        startTimer();
+        rapid.startTimer(playerTurn, timeX, timeO, title, buttons);
     }
 
     @Override
@@ -120,24 +89,24 @@ public class Rapid3x3Controller extends Classic3x3Controller {
             button.setText("X");
             symbol.setText("O");
             symbol.setStyle("-fx-text-fill:#fa3f2f");
-            timerX++; // add 1s to X when move
-            timeX.setText(String.valueOf(timerX) + "s");
+            rapid.timerX++; // add 1s to X when move
+            timeX.setText(String.valueOf(rapid.timerX) + "s");
         }
         else if (playerTurn % 2 == 1){
             button.setStyle("-fx-text-fill:#fa3f2f");
             button.setText("O");
             symbol.setText("X");
             symbol.setStyle("-fx-text-fill:#2f47fc");
-            timerO++; // add 1s to O when move
-            timeO.setText(String.valueOf(timerO) + "s");
+            rapid.timerO++; // add 1s to O when move
+            timeO.setText(String.valueOf(rapid.timerO) + "s");
         }
         playerTurn++;
 
         // restart timer
-        if(timer != null){
-            timer.stop();
+        if(rapid.timer != null){
+            rapid.timer.stop();
         }
-        startTimer();
+        rapid.startTimer(playerTurn, timeX, timeO, title, buttons);
     }
 
     public boolean checkIfGameOver(){
@@ -157,15 +126,15 @@ public class Rapid3x3Controller extends Classic3x3Controller {
             //X winner
             if (line.equals("XXX")) {
                 title.setText("X won!");
-                timer.stop();
-                disableAllButtons();
+                rapid.timer.stop();
+                rapid.disableAllButtons(buttons);
                 return true;
             }
             //O winner
             else if (line.equals("OOO")) {
                 title.setText("O won!");
-                timer.stop();
-                disableAllButtons();
+                rapid.timer.stop();
+                rapid.disableAllButtons(buttons);
                 return true;
             }
         }
@@ -173,12 +142,10 @@ public class Rapid3x3Controller extends Classic3x3Controller {
         boolean allFilled = buttons.stream().allMatch(b -> !b.getText().isEmpty());
         if (allFilled) {
             title.setText("It's a Draw!");
-            timer.stop();
+            rapid.timer.stop();
             return true;
         }
         return false;
     }
-    private void disableAllButtons() {
-        buttons.forEach(button -> button.setDisable(true));
-    }
+
 }

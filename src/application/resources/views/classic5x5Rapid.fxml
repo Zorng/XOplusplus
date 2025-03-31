@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.BestOfFive5x5RapidController">
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.Classic5x5RapidController">
     <children>
         <VBox alignment="CENTER" prefHeight="111.0" prefWidth="1208.0">
             <children>
-                <Label fx:id="title" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="573.0" styleClass="h2" text="BO5 5-TO-WIN Rapid" textAlignment="CENTER">
+                <Label fx:id="title" alignment="TOP_CENTER" prefHeight="45.0" prefWidth="573.0" styleClass="h2" text="Classic 5x5 Rapid" textAlignment="CENTER">
                     <font>
                         <Font size="30.0" />
                     </font>
@@ -39,12 +39,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="player1WinCounter" alignment="CENTER" prefHeight="29.0" prefWidth="201.0" text="Player 1 Wins: 0">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="player2WinCounter" alignment="CENTER" prefHeight="29.0" prefWidth="175.0" text="Player 2 Wins: 0">
+                  <Label fx:id="player1WinCounter" alignment="CENTER" prefHeight="29.0" prefWidth="201.0">
                      <font>
                         <Font size="16.0" />
                      </font>
