@@ -59,9 +59,6 @@ public class Rapid3x3Controller extends Classic3x3Controller {
         rapid.startTimer(playerTurn, timeX, timeO, title, buttons); // start timer immediate when game start
 
     }
-    // timer method
-
-
     @Override
     @FXML
     public void restartGame(ActionEvent event) {

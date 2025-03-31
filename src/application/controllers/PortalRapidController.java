@@ -1,6 +1,6 @@
 package application.controllers;
 
-
+import application.utils.Rapid;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -127,9 +127,7 @@ public class PortalRapidController extends PortalController {
     @FXML
     private Label timeO;
 
-    private int timerX = 8;
-    private int timerO = 8;
-    private Timeline timer;
+    Rapid rapid = new Rapid(8,8);
 
     @Override
     public void initialize() {
@@ -149,41 +147,12 @@ public class PortalRapidController extends PortalController {
         title.setText("Portal");
         symbol.setText("X");
         symbol.setStyle("-fx-text-fill:#2f47fc");
-        timeX.setText(String.valueOf(timerX) + "s");
-        timeO.setText(String.valueOf(timerO) + "s");
+        timeX.setText(String.valueOf(rapid.timerX)+"s");
+        timeO.setText(String.valueOf(rapid.timerO)+"s");
 
-        startTimer(); // start timer immediately after game start
+        rapid.startTimer(playerTurn, timeX, timeO, title, buttons); // start timer immediate when game start
     }
 
-    // timer method
-    private void startTimer(){
-        timer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            if(playerTurn % 2 == 0){
-                timerX--;
-                timeX.setText(String.valueOf(timerX)+"s");
-            } else {
-                timerO--;
-                timeO.setText(String.valueOf(timerO)+"s");
-            }
-            if(timerX <= 0){
-                title.setText("O won");
-                timer.stop();
-                disableAllButtons();
-            } else if(timerO <= 0){
-                title.setText("X won");
-                timer.stop();
-                disableAllButtons();
-            }
-        }));
-        // set timer to run indefinitely, without stop auto
-        timer.setCycleCount(Timeline.INDEFINITE);
-        // start time to begin cd
-        timer.play();
-    }
-
-    private void disableAllButtons() {
-        buttons.forEach(button -> button.setDisable(true));
-    }
 
     @FXML
     public void restartGame(ActionEvent event) {
@@ -194,39 +163,45 @@ public class PortalRapidController extends PortalController {
         symbol.setStyle("-fx-text-fill:#2f47fc");
 
         // reset timer for both X and O
-        timerX = 8;
-        timerO = 8;
+        rapid.timerX = 8;
+        rapid.timerO = 8;
         // update timer label
-        timeX.setText(String.valueOf(timerX) + "s");
-        timeO.setText(String.valueOf(timerO) + "s");
+        timeX.setText(String.valueOf(rapid.timerX) + "s");
+        timeO.setText(String.valueOf(rapid.timerO) + "s");
 
-        if(timer != null){
-            timer.stop();
+        if(rapid.timer != null){
+            rapid.timer.stop();
         }
-        startTimer();
+        rapid.startTimer(playerTurn, timeX, timeO, title, buttons);
     }
 
+    @Override
     public void setPlayerSymbol(Button button){
         if (playerTurn % 2 == 0){
             // O's turn to play
             button.setStyle("-fx-text-fill:#2f47fc");
             button.setText("X");
             symbol.setText("O");
-            timerX++;
+            rapid.timerX++;
             symbol.setStyle("-fx-text-fill:#fa3f2f");
-            timeX.setText(String.valueOf(timerX) + "s");
-            timeO.setText(String.valueOf(timerO) + "s");
+            timeX.setText(String.valueOf(rapid.timerX) + "s");
+            timeO.setText(String.valueOf(rapid.timerO) + "s");
         }
         else {
             button.setStyle("-fx-text-fill:#fa3f2f");
             button.setText("O");
             symbol.setText("X");
             symbol.setStyle("-fx-text-fill:#2f47fc");
-            timerO++;
-            timeX.setText(String.valueOf(timerX) + "s");
-            timeO.setText(String.valueOf(timerO) + "s");
+            rapid.timerO++;
+            timeX.setText(String.valueOf(rapid.timerX) + "s");
+            timeO.setText(String.valueOf(rapid.timerO) + "s");
         }
         playerTurn++;
+        // restart timer
+        if(rapid.timer != null){
+            rapid.timer.stop();
+        }
+        rapid.startTimer(playerTurn, timeX, timeO, title, buttons);
     }
 
     @Override
